@@ -22,3 +22,57 @@
 2020-07-31 11:20:40 INFO  Log:21 -  *** The following test started: Test DB connection ****
 2020-07-31 11:20:40 INFO  Log:21 - Successfully connected to DB
 2020-07-31 11:20:41 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:32:21 INFO  Log:21 -  *** The following test started: РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ students РІ Р‘Р” ****
+2020-07-31 11:32:21 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:32:22 INFO  Log:21 - Request sent CREATE TABLE if not exists students
+(
+    Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    age INT,
+    FirstName varchar(20) NOT NULL,
+    LastName varchar(20) NOT NULL
+);
+2020-07-31 11:32:22 INFO  Log:21 - Table successfully created
+2020-07-31 11:32:22 INFO  Log:21 - *** Test ended: РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ students РІ Р‘Р” ***
+2020-07-31 11:35:43 INFO  Log:21 -  *** The following test started: РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ students РІ Р‘Р” ****
+2020-07-31 11:35:43 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:35:43 INFO  Log:21 - Request sent CREATE TABLE if not exists students (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,age INT,FirstName varchar(20) NOT NULL,LastName varchar(20) NOT NULL)
+2020-07-31 11:35:43 INFO  Log:21 - Table successfully created
+2020-07-31 11:35:43 INFO  Log:21 - *** Test ended: РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ students РІ Р‘Р” ***
+2020-07-31 11:37:04 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-07-31 11:37:04 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:37:05 INFO  Log:21 - Request sent CREATE TABLE if not exists students (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,age INT,FirstName varchar(20) NOT NULL,LastName varchar(20) NOT NULL)
+2020-07-31 11:37:05 INFO  Log:21 - Table successfully created
+2020-07-31 11:37:05 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-07-31 11:38:18 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:38:18 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:38:18 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:38:18 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-07-31 11:38:18 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:38:18 INFO  Log:21 - Request sent CREATE TABLE if not exists students (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,age INT,FirstName varchar(20) NOT NULL,LastName varchar(20) NOT NULL)
+2020-07-31 11:38:18 INFO  Log:21 - Table successfully created
+2020-07-31 11:38:18 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-07-31 11:39:24 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-07-31 11:39:24 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:39:24 INFO  Log:21 - Request sent CREATE TABLE students (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,age INT,FirstName varchar(20) NOT NULL,LastName varchar(20) NOT NULL)
+2020-07-31 11:39:24 ERROR Log:33 - Table creation failed
+2020-07-31 11:39:24 ERROR Log:33 - Table 'students' already exists
+2020-07-31 11:39:24 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-07-31 11:39:28 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-07-31 11:39:28 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:39:28 INFO  Log:21 - Request sent CREATE TABLE students (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,age INT,FirstName varchar(20) NOT NULL,LastName varchar(20) NOT NULL)
+2020-07-31 11:39:28 ERROR Log:33 - Table creation failed
+2020-07-31 11:39:28 ERROR Log:33 - Table 'students' already exists
+2020-07-31 11:39:28 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-07-31 11:40:09 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-07-31 11:40:09 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:40:09 INFO  Log:21 - Request sent CREATE TABLE if not exists students (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,age INT,FirstName varchar(20) NOT NULL,LastName varchar(20) NOT NULL)
+2020-07-31 11:40:09 INFO  Log:21 - Table successfully created
+2020-07-31 11:40:09 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-07-31 11:43:29 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:43:29 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:43:30 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:43:38 INFO  Log:21 -  *** The following test started: РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ students РІ Р‘Р” ****
+2020-07-31 11:43:38 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:43:38 INFO  Log:21 - Request sent CREATE TABLE if not exists students (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,age INT,FirstName varchar(20) NOT NULL,LastName varchar(20) NOT NULL)
+2020-07-31 11:43:38 INFO  Log:21 - Table successfully created
+2020-07-31 11:43:38 INFO  Log:21 - *** Test ended: РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ students РІ Р‘Р” ***
