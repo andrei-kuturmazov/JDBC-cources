@@ -1,0 +1,24 @@
+2020-07-31 11:14:30 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:14:30 INFO  Log:21 - Successfully connected to DB jdbc:mysql://localhost:3306/usersjdbc:mysql://localhost:3306/users?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false as user: andrei
+2020-07-31 11:14:31 ERROR Log:33 - DB connection failed
+2020-07-31 11:14:31 ERROR Log:33 - Unknown database 'usersjdbc:mysql://localhost:3306/users'
+2020-07-31 11:14:31 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:16:05 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:16:05 INFO  Log:21 - Successfully connected to DB jdbc:mysql://localhost:3306/usersjdbc:mysql://localhost:3306/users?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false as user: andrei
+2020-07-31 11:16:06 ERROR Log:33 - DB connection failed
+2020-07-31 11:16:06 ERROR Log:33 - Unknown database 'usersjdbc:mysql://localhost:3306/users'
+2020-07-31 11:16:06 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:18:15 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:18:15 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:18:16 ERROR Log:33 - DB connection failed
+2020-07-31 11:18:16 ERROR Log:33 - Unknown database 'usersjdbc:mysql://localhost:3306/users'
+2020-07-31 11:18:16 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:19:30 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:19:30 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:19:30 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:20:02 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:20:02 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:20:02 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-07-31 11:20:40 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-07-31 11:20:40 INFO  Log:21 - Successfully connected to DB
+2020-07-31 11:20:41 INFO  Log:21 - *** Test ended: Test DB connection ***

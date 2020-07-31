@@ -22,7 +22,7 @@ public class JDBCConnection {
             Log.error("Driver not found");
             Log.error(e.getMessage());
         }
-        Log.info(String.format("Successfully connected to DB %s as user: %s", url, userName));
+        Log.info("Successfully connected to DB");
         try {
             connection = DriverManager.getConnection(url, userName, password);
         } catch (SQLException e) {
