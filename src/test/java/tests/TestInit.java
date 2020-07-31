@@ -1,5 +1,6 @@
 package tests;
 
+import dbConnection.JDBCConnection;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
@@ -13,6 +14,7 @@ public class TestInit {
 
     @AfterEach
     public void tearDown(TestInfo info) {
+        JDBCConnection.closeConnection();
         Log.info(String.format("*** Test ended: %s ***", info.getDisplayName()));
     }
 }
