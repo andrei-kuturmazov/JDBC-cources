@@ -45,12 +45,51 @@ public class DbTest extends TestInit {
 
     @Test
     @Order(4)
-    @DisplayName("Проверка получения информации о студенте")
+    @DisplayName("Проверка получения информации о первом студенте")
     void testFirstUserData() throws SQLException {
         String query = "SELECT FirstName, LastName from students where Id = 1;";
         ResultSet resultSet = JDBCConnection.selectDataFromDB(query);
         resultSet.first();
-        Assertions.assertEquals("Andrei", resultSet.getString("FirstName"));
-        Assertions.assertEquals("Kuturmazov", resultSet.getString("LastName"));
+        Assertions.assertEquals("Andrei", resultSet.getString(1));
+        Assertions.assertEquals("Kuturmazov", resultSet.getString(2));
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("Проверка получения информации о последнем студенте")
+    void testLastUserData() throws SQLException {
+        String query = "SELECT FirstName, LastName from students;";
+        ResultSet resultSet = JDBCConnection.selectDataFromDB(query);
+        resultSet.last();
+        Assertions.assertEquals("Karyna", resultSet.getString("FirstName"));
+        Assertions.assertEquals("Karmaza", resultSet.getString("LastName"));
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("Проверка обновления информации о студенте")
+    void testUserInfoUpdate() throws SQLException {
+        String query = "UPDATE students SET FirstName = 'Vasili', LastName = 'Yanushkevich', HomeTown = 'Grodno' where Id = 2;";
+        String selectQuery = "SELECT FirstName from students where id =2";
+        JDBCConnection.updateDataInsideDB(query);
+        ResultSet resultSet = JDBCConnection.selectDataFromDB(selectQuery);
+        resultSet.first();
+        Assertions.assertEquals("Vasili", resultSet.getString(1));
+    }
+
+    @Test
+    @Order(7)
+    @DisplayName("Провека удаления пользователя из таблицы")
+    void testUserDelete() {
+        String query = "Delete from students where Id = 1;";
+        JDBCConnection.deleteDataFromDb(query);
+    }
+
+    @Test
+    @Order(8)
+    @DisplayName("Проверка удаления таблицы")
+    void testTableDelete() {
+        String query = "DROP table students;";
+        JDBCConnection.deleteTableFromDb(query);
     }
 }

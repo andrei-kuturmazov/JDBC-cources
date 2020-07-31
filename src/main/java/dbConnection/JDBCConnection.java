@@ -64,7 +64,7 @@ public class JDBCConnection {
     public static void createTable(String query) {
         try {
             statement = connectToDb().prepareStatement(query);
-            Log.info(String.format("Request sent %s", query));
+            Log.info(String.format("Following request sent: *** %s ***", query));
             statement.executeUpdate(query);
             Log.info("Table successfully created");
         } catch (SQLException e) {
@@ -76,7 +76,7 @@ public class JDBCConnection {
     public static ResultSet selectDataFromDB(String query) {
         try {
             statement = connectToDb().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            Log.info(String.format("Request sent %s", query));
+            Log.info(String.format("Following request sent: *** %s ***", query));
             resultSet = statement.executeQuery(query);
             Log.info("Data from db retrieved");
         } catch (SQLException e) {
@@ -88,7 +88,7 @@ public class JDBCConnection {
     public static void insertDataToDB(String query) {
         try {
             statement = connectToDb().createStatement();
-            Log.info(String.format("Request sent %s", query));
+            Log.info(String.format("Following request sent: *** %s ***", query));
             statement.executeUpdate(query);
             Log.info("Data successfully added");
         } catch (SQLException e) {
@@ -100,7 +100,7 @@ public class JDBCConnection {
     public static void updateDataInsideDB(String query) {
         try {
             statement = connectToDb().createStatement();
-            Log.info(String.format("Request sent %s", query));
+            Log.info(String.format("Following request sent: *** %s ***", query));
             statement.executeUpdate(query);
             Log.info("Data successfully updated");
         } catch (SQLException e) {
@@ -112,11 +112,23 @@ public class JDBCConnection {
     public static void deleteDataFromDb(String query) {
         try {
             statement = connectToDb().createStatement();
-            Log.info(String.format("Request sent %s", query));
+            Log.info(String.format("Following request sent: *** %s ***", query));
             statement.executeUpdate(query);
             Log.info("Data successfully deleted");
         } catch (SQLException e) {
             Log.error("Error during data deleting occurs");
+            Log.error(e.getMessage());
+        }
+    }
+
+    public static void deleteTableFromDb(String query) {
+        try {
+            statement = connectToDb().createStatement();
+            Log.info(String.format("Following request sent: *** %s ***", query));
+            statement.executeUpdate(query);
+            Log.info("Table successfully deleted");
+        } catch (SQLException e) {
+            Log.error("Error during table deleting occurs");
             Log.error(e.getMessage());
         }
     }
