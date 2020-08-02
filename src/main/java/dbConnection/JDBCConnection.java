@@ -12,9 +12,6 @@ public class JDBCConnection {
     private static Statement statement;
     private static Connection connection;
     private static ResultSet resultSet;
-    private static final String url = Property.getProperty("url");
-    private static final String userName = Property.getProperty("userName");
-    private static final String password = Property.getProperty("password");
 
     public static Connection connectToDb() {
         try {
@@ -26,7 +23,8 @@ public class JDBCConnection {
         }
         Log.info("Successfully connected to DB");
         try {
-            connection = DriverManager.getConnection(url, userName, password);
+            connection = DriverManager.getConnection(Property.getProperty("url"),
+                    Property.getProperty("userName"), Property.getProperty("password"));
         } catch (SQLException e) {
             Log.error("DB connection failed");
             Log.error(e.getMessage());
