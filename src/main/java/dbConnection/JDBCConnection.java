@@ -49,6 +49,18 @@ public class JDBCConnection {
         }
     }
 
+    public static void createView(String query) {
+        try {
+            statement = connectToDb().prepareStatement(query);
+            Log.info(String.format("Following request sent: *** %s ***", query));
+            statement.executeUpdate(query);
+            Log.info("View successfully created");
+        } catch (SQLException e) {
+            Log.error("View creation failed");
+            Log.error(e.getMessage());
+        }
+    }
+
     public static ResultSet selectDataFromDB(String query) {
         try {
             statement = connectToDb().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -118,6 +130,17 @@ public class JDBCConnection {
             Log.info("Table successfully deleted");
         } catch (SQLException e) {
             Log.error("Error during table deleting occurs");
+            Log.error(e.getMessage());
+        }
+    }
+    public static void deleteViewFromDb(String query) {
+        try {
+            statement = connectToDb().createStatement();
+            Log.info(String.format("Following request sent: *** %s ***", query));
+            statement.executeUpdate(query);
+            Log.info("View successfully deleted");
+        } catch (SQLException e) {
+            Log.error("Error during view deleting occurs");
             Log.error(e.getMessage());
         }
     }

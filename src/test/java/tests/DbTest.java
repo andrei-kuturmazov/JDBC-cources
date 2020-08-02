@@ -90,6 +90,14 @@ public class DbTest extends TestInit {
 
     @Test
     @Order(8)
+    @DisplayName("Проверка создание Представления")
+    void testViewCreation() {
+        String query = "CREATE VIEW testView as SELECT * from students where FirstName in ('Andrei', 'Vasili');";
+        JDBCConnection.createView(query);
+    }
+
+    @Test
+    @Order(9)
     @DisplayName("Провека удаления пользователя из таблицы")
     void testUserDelete() {
         String query = "Delete from students where Id = 1;";
@@ -97,7 +105,15 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(9)
+    @Order(10)
+    @DisplayName("Проверка удаления представления")
+    void testViewDelete() {
+        String query = "Drop view testView";
+        JDBCConnection.deleteViewFromDb(query);
+    }
+
+    @Test
+    @Order(11)
     @DisplayName("Проверка удаления таблицы")
     void testTableDelete() {
         String query = "DROP table students;";
