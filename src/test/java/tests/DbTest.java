@@ -3,6 +3,7 @@ package tests;
 import dbConnection.JDBCConnection;
 import org.junit.jupiter.api.*;
 
+import javax.sql.RowSet;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -67,6 +68,17 @@ public class DbTest extends TestInit {
 
     @Test
     @Order(6)
+    @DisplayName("Проверка получения информации о студенте используя RowSet")
+    void testStudentInfoUsingRowSet() throws SQLException {
+        String query = "Select FirstName, LastName from students where Id = 3";
+        RowSet rowSet = JDBCConnection.selectDataUsingRowSet(query);
+        rowSet.first();
+        Assertions.assertEquals("Hanna", rowSet.getString(1));
+        Assertions.assertEquals("Kulba", rowSet.getString(2));
+    }
+
+    @Test
+    @Order(7)
     @DisplayName("Проверка получения информации о последнем студенте")
     void testLastUserData() throws SQLException {
         String query = "SELECT FirstName, LastName from students;";
@@ -77,7 +89,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     @DisplayName("Проверка обновления информации о студенте")
     void testUserInfoUpdate() throws SQLException {
         String query = "UPDATE students SET FirstName = 'Vasili', LastName = 'Yanushkevich', HomeTown = 'Grodno' where Id = 2;";
@@ -89,7 +101,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(8)
+    @Order(9)
     @DisplayName("Проверка создание Представления")
     void testViewCreation() {
         String query = "CREATE VIEW testView as SELECT * from students where FirstName in ('Andrei', 'Vasili');";
@@ -97,7 +109,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(9)
+    @Order(10)
     @DisplayName("Провека удаления пользователя из таблицы")
     void testUserDelete() {
         String query = "Delete from students where Id = 1;";
@@ -105,7 +117,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(10)
+    @Order(11)
     @DisplayName("Проверка удаления представления")
     void testViewDelete() {
         String query = "Drop view testView";
@@ -113,7 +125,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(11)
+    @Order(12)
     @DisplayName("Проверка удаления таблицы")
     void testTableDelete() {
         String query = "DROP table students;";

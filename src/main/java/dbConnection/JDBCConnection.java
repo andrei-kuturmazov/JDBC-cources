@@ -1,9 +1,12 @@
 package dbConnection;
 
+import com.sun.rowset.JdbcRowSetImpl;
 import org.apache.commons.dbutils.DbUtils;
 import utils.Log;
 import utils.Property;
 
+import javax.sql.RowSet;
+import javax.sql.rowset.JdbcRowSet;
 import java.sql.*;
 
 public class JDBCConnection {
@@ -12,6 +15,7 @@ public class JDBCConnection {
     private static Statement statement;
     private static Connection connection;
     private static ResultSet resultSet;
+    private static JdbcRowSet rowSet;
 
     public static Connection connectToDb() {
         try {
@@ -35,6 +39,7 @@ public class JDBCConnection {
     public static void closeConnection() {
         DbUtils.closeQuietly(connection, statement, resultSet);
         DbUtils.closeQuietly(preparedStatement);
+        DbUtils.closeQuietly(rowSet);
     }
 
     public static void createTable(String query) {
@@ -71,6 +76,18 @@ public class JDBCConnection {
             Log.error(e.getMessage());
         }
         return resultSet;
+    }
+
+    public static RowSet selectDataUsingRowSet(String query) {
+        try {
+            rowSet = new JdbcRowSetImpl(connectToDb());
+            rowSet.setCommand(query);
+            Log.info(String.format("Following request sent: *** %s ***", query));
+            rowSet.execute();
+        } catch (SQLException e) {
+            Log.error(e.getMessage());
+        }
+        return rowSet;
     }
 
     public static ResultSet selectPreparedDataFromDB(String query) {
