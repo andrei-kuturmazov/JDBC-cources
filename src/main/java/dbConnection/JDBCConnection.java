@@ -7,6 +7,7 @@ import java.sql.*;
 
 public class JDBCConnection {
 
+    private static PreparedStatement preparedStatement;
     private static Statement statement;
     private static Connection connection;
     private static ResultSet resultSet;
@@ -78,6 +79,18 @@ public class JDBCConnection {
             statement = connectToDb().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             Log.info(String.format("Following request sent: *** %s ***", query));
             resultSet = statement.executeQuery(query);
+            Log.info("Data from db retrieved");
+        } catch (SQLException e) {
+            Log.error(e.getMessage());
+        }
+        return resultSet;
+    }
+    public static ResultSet selectPreparedDataFromDB(String query) {
+        try {
+            preparedStatement = connectToDb().prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            preparedStatement.setString(1, Property.getProperty("userId"));
+            Log.info(String.format("Following request sent: *** %s ***", query));
+            resultSet = preparedStatement.executeQuery();
             Log.info("Data from db retrieved");
         } catch (SQLException e) {
             Log.error(e.getMessage());

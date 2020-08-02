@@ -812,3 +812,212 @@
 2020-07-31 13:49:02 INFO  Log:21 - Following request sent: *** DROP table students; ***
 2020-07-31 13:49:02 INFO  Log:21 - Table successfully deleted
 2020-07-31 13:49:02 INFO  Log:21 - *** Test ended: Проверка удаления таблицы ***
+2020-08-02 09:39:14 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-08-02 09:39:14 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:39:15 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:39:15 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-08-02 09:39:28 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-08-02 09:39:28 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:39:28 INFO  Log:21 - Following request sent: *** CREATE TABLE if not exists students
+    (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    FirstName varchar(20) NOT NULL,
+    LastName varchar(20) NOT NULL,
+    HomeTown varchar(20),
+    Age INT); ***
+2020-08-02 09:39:28 INFO  Log:21 - Table successfully created
+2020-08-02 09:39:28 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:39:28 INFO  Log:21 - Statement closed
+2020-08-02 09:39:28 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-08-02 09:39:43 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-02 09:39:43 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:39:43 INFO  Log:21 - Following request sent: *** Insert students(FirstName, LastName, HomeTown, Age) VALUES
+(?, ?, 'Grodno', 31),
+('Stepan', 'Petrov', 'Minsk', 33),
+('Hanna', 'Kulba', 'Grodno', 18),
+('Karyna', 'Karmaza', 'Rymdyni', 18); ***
+2020-08-02 09:39:43 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:39:43 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-02 09:40:34 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-02 09:40:34 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:40:35 INFO  Log:21 - Following request sent: *** Insert students(FirstName, LastName, HomeTown, Age) VALUES
+(?, ?, 'Grodno', 31),
+('Stepan', 'Petrov', 'Minsk', 33),
+('Hanna', 'Kulba', 'Grodno', 18),
+('Karyna', 'Karmaza', 'Rymdyni', 18); ***
+2020-08-02 09:40:35 ERROR Log:33 - Error during data insert occurs
+2020-08-02 09:40:35 ERROR Log:33 - Can not issue data manipulation statements with executeQuery().
+2020-08-02 09:40:35 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:40:35 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-02 09:41:01 INFO  Log:21 -  *** The following test started: Проверка удаления таблицы ****
+2020-08-02 09:41:01 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:41:02 INFO  Log:21 - Following request sent: *** DROP table students; ***
+2020-08-02 09:41:02 INFO  Log:21 - Table successfully deleted
+2020-08-02 09:41:02 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:41:02 INFO  Log:21 - Statement closed
+2020-08-02 09:41:02 INFO  Log:21 - *** Test ended: Проверка удаления таблицы ***
+2020-08-02 09:43:04 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-02 09:43:04 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:43:04 ERROR Log:33 - Error during data insert occurs
+2020-08-02 09:43:04 ERROR Log:33 - Parameter index out of range (1 > number of parameters, which is 0).
+2020-08-02 09:43:04 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:43:04 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-02 09:43:47 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-02 09:43:47 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:43:48 INFO  Log:21 - Following request sent: *** Insert students(FirstName, LastName, HomeTown, Age) VALUES
+('Andrie', 'Kuturmazov', 'Grodno', 31),
+('Stepan', 'Petrov', 'Minsk', 33),
+('Hanna', 'Kulba', 'Grodno', 18),
+('Karyna', 'Karmaza', 'Rymdyni', 18); ***
+2020-08-02 09:43:48 ERROR Log:33 - Error during data insert occurs
+2020-08-02 09:43:48 ERROR Log:33 - Table 'users.students' doesn't exist
+2020-08-02 09:43:48 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:43:48 INFO  Log:21 - Statement closed
+2020-08-02 09:43:48 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-02 09:44:12 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-08-02 09:44:12 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:44:13 INFO  Log:21 - Following request sent: *** CREATE TABLE if not exists students
+    (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    FirstName varchar(20) NOT NULL,
+    LastName varchar(20) NOT NULL,
+    HomeTown varchar(20),
+    Age INT); ***
+2020-08-02 09:44:13 INFO  Log:21 - Table successfully created
+2020-08-02 09:44:13 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:44:13 INFO  Log:21 - Statement closed
+2020-08-02 09:44:13 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-08-02 09:44:17 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-02 09:44:17 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:44:17 INFO  Log:21 - Following request sent: *** Insert students(FirstName, LastName, HomeTown, Age) VALUES
+('Andrei', 'Kuturmazov', 'Grodno', 31),
+('Stepan', 'Petrov', 'Minsk', 33),
+('Hanna', 'Kulba', 'Grodno', 18),
+('Karyna', 'Karmaza', 'Rymdyni', 18); ***
+2020-08-02 09:44:17 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:44:17 INFO  Log:21 - Statement closed
+2020-08-02 09:44:17 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-02 09:44:38 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-02 09:44:38 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:44:39 INFO  Log:21 - Following request sent: *** Insert students(FirstName, LastName, HomeTown, Age) VALUES
+('Andrei', 'Kuturmazov', 'Grodno', 31),
+('Stepan', 'Petrov', 'Minsk', 33),
+('Hanna', 'Kulba', 'Grodno', 18),
+('Karyna', 'Karmaza', 'Rymdyni', 18); ***
+2020-08-02 09:44:39 INFO  Log:21 - Data successfully added
+2020-08-02 09:44:39 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:44:39 INFO  Log:21 - Statement closed
+2020-08-02 09:44:39 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-02 09:44:59 INFO  Log:21 -  *** The following test started: Проверка удаления таблицы ****
+2020-08-02 09:44:59 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:44:59 INFO  Log:21 - Following request sent: *** DROP table students; ***
+2020-08-02 09:44:59 INFO  Log:21 - Table successfully deleted
+2020-08-02 09:44:59 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:44:59 INFO  Log:21 - Statement closed
+2020-08-02 09:44:59 INFO  Log:21 - *** Test ended: Проверка удаления таблицы ***
+2020-08-02 09:45:05 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-08-02 09:45:05 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:45:05 INFO  Log:21 - Following request sent: *** CREATE TABLE if not exists students
+    (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    FirstName varchar(20) NOT NULL,
+    LastName varchar(20) NOT NULL,
+    HomeTown varchar(20),
+    Age INT); ***
+2020-08-02 09:45:06 INFO  Log:21 - Table successfully created
+2020-08-02 09:45:06 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:45:06 INFO  Log:21 - Statement closed
+2020-08-02 09:45:06 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-08-02 09:45:10 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-02 09:45:10 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:45:10 INFO  Log:21 - Following request sent: *** Insert students(FirstName, LastName, HomeTown, Age) VALUES
+('Andrei', 'Kuturmazov', 'Grodno', 31),
+('Stepan', 'Petrov', 'Minsk', 33),
+('Hanna', 'Kulba', 'Grodno', 18),
+('Karyna', 'Karmaza', 'Rymdyni', 18); ***
+2020-08-02 09:45:10 INFO  Log:21 - Data successfully added
+2020-08-02 09:45:10 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:45:10 INFO  Log:21 - Statement closed
+2020-08-02 09:45:10 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-02 09:51:27 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте ****
+2020-08-02 09:51:27 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:51:28 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:51:28 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:51:28 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:51:28 INFO  Log:21 - ResultSet closed
+2020-08-02 09:51:28 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте ***
+2020-08-02 09:52:43 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте ****
+2020-08-02 09:52:58 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:53:15 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:53:52 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:54:18 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:54:18 INFO  Log:21 - ResultSet closed
+2020-08-02 09:54:18 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте ***
+2020-08-02 09:56:06 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте ****
+2020-08-02 09:56:06 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:56:07 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:56:07 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:56:07 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:56:07 INFO  Log:21 - ResultSet closed
+2020-08-02 09:56:07 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте ***
+2020-08-02 09:56:20 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте ****
+2020-08-02 09:56:20 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:56:20 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:56:20 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:56:44 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:56:44 INFO  Log:21 - ResultSet closed
+2020-08-02 09:56:44 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте ***
+2020-08-02 09:56:56 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте ****
+2020-08-02 09:56:56 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:56:56 INFO  Log:21 - Following request sent: *** SELECT FirstName, LastName from students; ***
+2020-08-02 09:56:56 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:56:56 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:56:56 INFO  Log:21 - Statement closed
+2020-08-02 09:56:56 INFO  Log:21 - ResultSet closed
+2020-08-02 09:56:56 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте ***
+2020-08-02 09:57:29 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-02 09:57:29 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:57:30 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:57:30 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:57:30 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:57:30 INFO  Log:21 - ResultSet closed
+2020-08-02 09:57:30 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***
+2020-08-02 09:57:36 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-02 09:57:36 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:57:36 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:57:36 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:57:36 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:57:36 INFO  Log:21 - ResultSet closed
+2020-08-02 09:57:36 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***
+2020-08-02 09:58:10 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-02 09:58:10 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:58:10 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:58:10 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:58:10 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:58:10 INFO  Log:21 - ResultSet closed
+2020-08-02 09:58:10 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***
+2020-08-02 09:58:26 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-02 09:58:26 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:58:26 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:58:26 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:58:26 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:58:26 INFO  Log:21 - ResultSet closed
+2020-08-02 09:58:26 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***
+2020-08-02 09:59:57 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-02 09:59:57 INFO  Log:21 - Successfully connected to DB
+2020-08-02 09:59:58 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 09:59:58 INFO  Log:21 - Data from db retrieved
+2020-08-02 09:59:58 INFO  Log:21 - Connection to DB closed
+2020-08-02 09:59:58 INFO  Log:21 - ResultSet closed
+2020-08-02 09:59:58 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***
+2020-08-02 10:00:07 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-02 10:00:07 INFO  Log:21 - Successfully connected to DB
+2020-08-02 10:00:07 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 10:00:07 INFO  Log:21 - Data from db retrieved
+2020-08-02 10:00:07 INFO  Log:21 - Connection to DB closed
+2020-08-02 10:00:07 INFO  Log:21 - ResultSet closed
+2020-08-02 10:00:07 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***
+2020-08-02 10:00:20 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-02 10:00:20 INFO  Log:21 - Successfully connected to DB
+2020-08-02 10:00:20 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-02 10:00:20 INFO  Log:21 - Data from db retrieved
+2020-08-02 10:00:20 INFO  Log:21 - Connection to DB closed
+2020-08-02 10:00:20 INFO  Log:21 - ResultSet closed
+2020-08-02 10:00:20 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***

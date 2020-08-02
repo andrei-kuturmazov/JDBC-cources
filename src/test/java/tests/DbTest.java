@@ -46,7 +46,7 @@ public class DbTest extends TestInit {
     @Test
     @Order(4)
     @DisplayName("Проверка получения информации о первом студенте")
-    void testFirstUserData() throws SQLException {
+    void testFirstStudentData() throws SQLException {
         String query = "SELECT FirstName, LastName from students where Id = 1;";
         ResultSet resultSet = JDBCConnection.selectDataFromDB(query);
         resultSet.first();
@@ -56,6 +56,17 @@ public class DbTest extends TestInit {
 
     @Test
     @Order(5)
+    @DisplayName("Проверка получения информации о последнем студенте через preparedStatement")
+    void testLastStudentData() throws SQLException {
+        String query = "Select FirstName, LastName from students where Id = ?";
+        ResultSet resultSet = JDBCConnection.selectPreparedDataFromDB(query);
+        resultSet.first();
+        Assertions.assertEquals("Karyna", resultSet.getString("FirstName"));
+        Assertions.assertEquals("Karmaza", resultSet.getString("LastName"));
+    }
+
+    @Test
+    @Order(6)
     @DisplayName("Проверка получения информации о последнем студенте")
     void testLastUserData() throws SQLException {
         String query = "SELECT FirstName, LastName from students;";
@@ -66,7 +77,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     @DisplayName("Проверка обновления информации о студенте")
     void testUserInfoUpdate() throws SQLException {
         String query = "UPDATE students SET FirstName = 'Vasili', LastName = 'Yanushkevich', HomeTown = 'Grodno' where Id = 2;";
@@ -78,7 +89,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     @DisplayName("Провека удаления пользователя из таблицы")
     void testUserDelete() {
         String query = "Delete from students where Id = 1;";
@@ -86,7 +97,7 @@ public class DbTest extends TestInit {
     }
 
     @Test
-    @Order(8)
+    @Order(9)
     @DisplayName("Проверка удаления таблицы")
     void testTableDelete() {
         String query = "DROP table students;";
