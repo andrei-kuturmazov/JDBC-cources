@@ -1,5 +1,6 @@
 package dbConnection;
 
+import org.apache.commons.dbutils.DbUtils;
 import utils.Log;
 import utils.Property;
 
@@ -34,32 +35,8 @@ public class JDBCConnection {
     }
 
     public static void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-                Log.info("Connection to DB closed");
-            } catch (SQLException se) {
-                Log.error(se.getMessage());
-            }
-        }
-
-        if (statement != null) {
-            try {
-                statement.close();
-                Log.info("Statement closed");
-            } catch (SQLException se) {
-                Log.error(se.getMessage());
-            }
-        }
-
-        if (resultSet != null) {
-            try {
-                resultSet.close();
-                Log.info("ResultSet closed");
-            } catch (SQLException se) {
-                Log.error(se.getMessage());
-            }
-        }
+        DbUtils.closeQuietly(connection, statement, resultSet);
+        DbUtils.closeQuietly(preparedStatement);
     }
 
     public static void createTable(String query) {
@@ -85,6 +62,7 @@ public class JDBCConnection {
         }
         return resultSet;
     }
+
     public static ResultSet selectPreparedDataFromDB(String query) {
         try {
             preparedStatement = connectToDb().prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
