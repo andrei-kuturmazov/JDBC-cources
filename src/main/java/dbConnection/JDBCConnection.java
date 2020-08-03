@@ -20,15 +20,11 @@ public class JDBCConnection {
     public static Connection connectToDb() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e) {
-            Log.error("Driver not found");
-            Log.error(e.getMessage());
-        }
-        Log.info("Successfully connected to DB");
-        try {
             connection = DriverManager.getConnection(Property.getProperty("url"),
                     Property.getProperty("userName"), Property.getProperty("password"));
+        } catch (ClassNotFoundException e) {
+            Log.error("Driver not found");
+            Log.error(e.getMessage());
         } catch (SQLException e) {
             Log.error("DB connection failed");
             Log.error(e.getMessage());
