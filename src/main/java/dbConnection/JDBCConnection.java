@@ -42,18 +42,18 @@ public class JDBCConnection {
         DbUtils.closeQuietly(rowSet);
     }
 
-    public static void createInstance(String query, String instance) throws SQLException {
+    public static void createInstance(String query, String message) throws SQLException {
         statement = connectToDb().prepareStatement(query);
         Log.info(String.format("Following request sent: *** %s ***", query));
         statement.executeUpdate(query);
-        Log.info(instance);
+        Log.info(message);
     }
 
-    public static void changeInstance(String query, String instance) throws SQLException {
+    public static void changeInstance(String query, String message) throws SQLException {
         statement = connectToDb().createStatement();
         Log.info(String.format("Following request sent: *** %s ***", query));
         statement.executeUpdate(query);
-        Log.info(instance);
+        Log.info(message);
     }
 
     public static void createTable(String query) {
