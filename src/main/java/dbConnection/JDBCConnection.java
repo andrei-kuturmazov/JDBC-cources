@@ -42,12 +42,23 @@ public class JDBCConnection {
         DbUtils.closeQuietly(rowSet);
     }
 
+    public static void createInstance(String query, String instance) throws SQLException {
+        statement = connectToDb().prepareStatement(query);
+        Log.info(String.format("Following request sent: *** %s ***", query));
+        statement.executeUpdate(query);
+        Log.info(instance);
+    }
+
+    public static void changeInstance(String query, String instance) throws SQLException {
+        statement = connectToDb().createStatement();
+        Log.info(String.format("Following request sent: *** %s ***", query));
+        statement.executeUpdate(query);
+        Log.info(instance);
+    }
+
     public static void createTable(String query) {
         try {
-            statement = connectToDb().prepareStatement(query);
-            Log.info(String.format("Following request sent: *** %s ***", query));
-            statement.executeUpdate(query);
-            Log.info("Table successfully created");
+            createInstance(query, "Table successfully created");
         } catch (SQLException e) {
             Log.error("Table creation failed");
             Log.error(e.getMessage());
@@ -56,10 +67,7 @@ public class JDBCConnection {
 
     public static void createView(String query) {
         try {
-            statement = connectToDb().prepareStatement(query);
-            Log.info(String.format("Following request sent: *** %s ***", query));
-            statement.executeUpdate(query);
-            Log.info("View successfully created");
+            createInstance(query, "View successfully created");
         } catch (SQLException e) {
             Log.error("View creation failed");
             Log.error(e.getMessage());
@@ -105,10 +113,7 @@ public class JDBCConnection {
 
     public static void insertDataToDB(String query) {
         try {
-            statement = connectToDb().createStatement();
-            Log.info(String.format("Following request sent: *** %s ***", query));
-            statement.executeUpdate(query);
-            Log.info("Data successfully added");
+            changeInstance(query, "Data successfully added");
         } catch (SQLException e) {
             Log.error("Error during data insert occurs");
             Log.error(e.getMessage());
@@ -117,10 +122,7 @@ public class JDBCConnection {
 
     public static void updateDataInsideDB(String query) {
         try {
-            statement = connectToDb().createStatement();
-            Log.info(String.format("Following request sent: *** %s ***", query));
-            statement.executeUpdate(query);
-            Log.info("Data successfully updated");
+            changeInstance(query, "Data successfully updated");
         } catch (SQLException e) {
             Log.error("Error during data update occurs");
             Log.error(e.getMessage());
@@ -129,10 +131,7 @@ public class JDBCConnection {
 
     public static void deleteDataFromDb(String query) {
         try {
-            statement = connectToDb().createStatement();
-            Log.info(String.format("Following request sent: *** %s ***", query));
-            statement.executeUpdate(query);
-            Log.info("Data successfully deleted");
+            changeInstance(query, "Data successfully deleted");
         } catch (SQLException e) {
             Log.error("Error during data deleting occurs");
             Log.error(e.getMessage());
@@ -141,21 +140,16 @@ public class JDBCConnection {
 
     public static void deleteTableFromDb(String query) {
         try {
-            statement = connectToDb().createStatement();
-            Log.info(String.format("Following request sent: *** %s ***", query));
-            statement.executeUpdate(query);
-            Log.info("Table successfully deleted");
+            changeInstance(query, "Table successfully deleted");
         } catch (SQLException e) {
             Log.error("Error during table deleting occurs");
             Log.error(e.getMessage());
         }
     }
+
     public static void deleteViewFromDb(String query) {
         try {
-            statement = connectToDb().createStatement();
-            Log.info(String.format("Following request sent: *** %s ***", query));
-            statement.executeUpdate(query);
-            Log.info("View successfully deleted");
+            changeInstance(query, "View successfully deleted");
         } catch (SQLException e) {
             Log.error("Error during view deleting occurs");
             Log.error(e.getMessage());
