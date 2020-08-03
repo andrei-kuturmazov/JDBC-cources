@@ -1612,3 +1612,72 @@ CREATE VIEW ' at line 2
 2020-08-03 10:15:53 INFO  Log:21 - Following request sent: *** DROP table students; ***
 2020-08-03 10:15:53 INFO  Log:21 - Table successfully deleted
 2020-08-03 10:15:53 INFO  Log:21 - *** Test ended: Проверка удаления таблицы ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Test DB connection ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Test DB connection ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Создание таблицы students в БД ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** CREATE TABLE if not exists students
+    (Id INT (5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    FirstName varchar(20) NOT NULL,
+    LastName varchar(20) NOT NULL,
+    HomeTown varchar(20),
+    Age INT); ***
+2020-08-03 10:35:23 INFO  Log:21 - Table successfully created
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Создание таблицы students в БД ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка добавления данных в таблицу students ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** Insert students(FirstName, LastName, HomeTown, Age) VALUES
+('Andrei', 'Kuturmazov', 'Grodno', 31),
+('Stepan', 'Petrov', 'Minsk', 33),
+('Hanna', 'Kulba', 'Grodno', 18),
+('Karyna', 'Karmaza', 'Rymdyni', 18); ***
+2020-08-03 10:35:23 INFO  Log:21 - Data successfully added
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка добавления данных в таблицу students ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка получения информации о первом студенте ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** SELECT FirstName, LastName from students where Id = 1; ***
+2020-08-03 10:35:23 INFO  Log:21 - Data from db retrieved
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка получения информации о первом студенте ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте через preparedStatement ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = ? ***
+2020-08-03 10:35:23 INFO  Log:21 - Data from db retrieved
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте через preparedStatement ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка получения информации о студенте используя RowSet ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** Select FirstName, LastName from students where Id = 3 ***
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка получения информации о студенте используя RowSet ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка получения информации о последнем студенте ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** SELECT FirstName, LastName from students; ***
+2020-08-03 10:35:23 INFO  Log:21 - Data from db retrieved
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка получения информации о последнем студенте ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка обновления информации о студенте ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** UPDATE students SET FirstName = 'Vasili', LastName = 'Yanushkevich', HomeTown = 'Grodno' where Id = 2; ***
+2020-08-03 10:35:23 INFO  Log:21 - Data successfully updated
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** SELECT FirstName from students where id =2 ***
+2020-08-03 10:35:23 INFO  Log:21 - Data from db retrieved
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка обновления информации о студенте ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка создание Представления ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** CREATE VIEW testView as SELECT * from students where FirstName in ('Andrei', 'Vasili'); ***
+2020-08-03 10:35:23 INFO  Log:21 - View successfully created
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка создание Представления ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Провека удаления пользователя из таблицы ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** Delete from students where Id = 1; ***
+2020-08-03 10:35:23 INFO  Log:21 - Data successfully deleted
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Провека удаления пользователя из таблицы ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка удаления представления ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** Drop view testView ***
+2020-08-03 10:35:23 INFO  Log:21 - View successfully deleted
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка удаления представления ***
+2020-08-03 10:35:23 INFO  Log:21 -  *** The following test started: Проверка удаления таблицы ****
+2020-08-03 10:35:23 INFO  Log:21 - Successfully connected to DB
+2020-08-03 10:35:23 INFO  Log:21 - Following request sent: *** DROP table students; ***
+2020-08-03 10:35:23 INFO  Log:21 - Table successfully deleted
+2020-08-03 10:35:23 INFO  Log:21 - *** Test ended: Проверка удаления таблицы ***
